@@ -73,7 +73,49 @@ input {
   border-radius: 6px;
 }
 
-button {
+.field {
+  position: relative;
+}
+
+.field input {
+  padding-right: 52px;
+}
+
+/* Edge adds its own hold-to-show eye; this page has a toggle instead. */
+.field input::-ms-reveal { display: none; }
+
+.reveal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+}
+
+.reveal:hover { color: var(--text); }
+
+.reveal svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.reveal[aria-pressed="false"] .icon-hide,
+.reveal[aria-pressed="true"] .icon-show { display: none; }
+
+button[type="submit"] {
   display: block;
   width: 100%;
   margin-top: 14px;
@@ -89,7 +131,7 @@ button {
   cursor: pointer;
 }
 
-button:disabled { opacity: 0.6; cursor: wait; }
+button[type="submit"]:disabled { opacity: 0.6; cursor: wait; }
 
 input:focus-visible,
 button:focus-visible {

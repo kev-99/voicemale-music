@@ -5,8 +5,20 @@ const ITERATIONS = 600000;
 
 const form = document.getElementById('unlock');
 const input = document.getElementById('password');
-const button = form.querySelector('button');
+const button = form.querySelector('button[type="submit"]');
+const reveal = document.getElementById('reveal');
 const message = document.getElementById('message');
+
+// A toggle: one press shows the password, the next hides it again.
+reveal.addEventListener('click', () => {
+  const show = reveal.getAttribute('aria-pressed') !== 'true';
+  input.type = show ? 'text' : 'password';
+  reveal.setAttribute('aria-pressed', String(show));
+  const label = show ? 'Hide password' : 'Show password';
+  reveal.setAttribute('aria-label', label);
+  reveal.title = label;
+  input.focus();
+});
 
 async function decryptLink(password) {
   const bytes = Uint8Array.from(atob(ENCRYPTED_LINK), (c) => c.charCodeAt(0));
