@@ -73,8 +73,7 @@ input {
   border-radius: 6px;
 }
 
-button,
-.song-link {
+button {
   display: block;
   width: 100%;
   margin-top: 14px;
@@ -90,16 +89,10 @@ button,
   cursor: pointer;
 }
 
-.song-link {
-  margin-top: 0;
-  font-size: 1.15rem;
-}
-
 button:disabled { opacity: 0.6; cursor: wait; }
 
 input:focus-visible,
-button:focus-visible,
-.song-link:focus-visible {
+button:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
@@ -112,8 +105,3 @@ button:focus-visible,
 
 #message.error { color: var(--error); }
 
-.hint {
-  margin: 10px 0 0;
-  font-size: 0.9rem;
-  color: var(--muted);
-}

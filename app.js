@@ -7,8 +7,6 @@ const form = document.getElementById('unlock');
 const input = document.getElementById('password');
 const button = form.querySelector('button');
 const message = document.getElementById('message');
-const library = document.getElementById('library');
-const currentSongs = document.getElementById('current-songs');
 
 async function decryptLink(password) {
   const bytes = Uint8Array.from(atob(ENCRYPTED_LINK), (c) => c.charCodeAt(0));
@@ -36,11 +34,8 @@ form.addEventListener('submit', async (event) => {
   message.textContent = 'Checking…';
   try {
     const link = await decryptLink(password);
-    currentSongs.href = link;
-    form.hidden = true;
-    message.textContent = '';
-    library.hidden = false;
-    currentSongs.focus();
+    message.textContent = 'Opening Current Songs…';
+    window.location.assign(link);
   } catch {
     // A wrong password fails the GCM tag check.
     message.className = 'error';
