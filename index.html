@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>VoiceMale Music Library</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main>
+    <h1>VoiceMale</h1>
+    <p class="lead">Music library for choir members</p>
+
+    <form id="unlock">
+      <label for="password">Choir password</label>
+      <input id="password" type="password" autocomplete="current-password"
+             autocapitalize="none" autocorrect="off" spellcheck="false" required>
+      <button type="submit">Open the library</button>
+    </form>
+    <p id="message" role="status"></p>
+
+    <section id="library" hidden>
+      <a id="current-songs" class="song-link" href="#">Current Songs</a>
+      <p class="hint">Opens the choir's Google Drive folder of scores and part recordings.</p>
+    </section>
+  </main>
+</body>
+</html>
